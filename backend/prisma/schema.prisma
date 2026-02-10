@@ -1,0 +1,123 @@
+// Prisma Schema - EB-3 Caregivers Landing Page
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SectionContent {
+  id          String   @id @default(cuid())
+  sectionKey  String   @unique
+  title       String
+  subtitle    String?
+  body        String?
+  items       Json?
+  ctaText     String?
+  ctaUrl      String?
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model EventSession {
+  id              String             @id @default(cuid())
+  city            String
+  dates           Json
+  sessionTimes    Json
+  facilitator     String
+  registrationUrl String
+  disclaimer      String
+  capacity        Int?
+  isActive        Boolean            @default(true)
+  sortOrder       Int                @default(0)
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  applications    EventApplication[]
+}
+
+model AnalyticsEvent {
+  id         String   @id @default(cuid())
+  eventType  String
+  label      String
+  metadata   Json?
+  sessionId  String?
+  createdAt  DateTime @default(now())
+
+  @@index([eventType])
+  @@index([createdAt])
+  @@index([sessionId])
+}
+
+model SiteConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  updatedAt DateTime @updatedAt
+}
+
+model EventApplication {
+  id                      String   @id @default(cuid())
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  // Section 1 - Basic Information
+  fullName                String
+  mobileNumber            String
+  email                   String   @unique
+  currentCity             String
+
+  // Section 2 - Eligibility & Background
+  nationality             String
+  uaeResident             Boolean
+  caregivingExperience    Json     // String array
+  willingToWork           Boolean
+  willingToDrive          Boolean
+
+  // Section 3 - Expectation Setting
+  acceptsTimeframe        Boolean
+  seeksPermanentRelocation Boolean
+  understandsInfoOnly     Boolean
+  acceptsFinancialCosts   Boolean
+
+  // Section 4 - Session Selection
+  attendanceMode          String   // IN_PERSON | ONLINE
+  selectedSession         String
+  eventSessionId          String?
+  eventSession            EventSession? @relation(fields: [eventSessionId], references: [id])
+
+  // Section 5 - Final Acknowledgment
+  acknowledgedAccuracy    Boolean
+
+  // Auto-tagging
+  status                  String
+  tags                    Json     // String array
+
+  // Review
+  reviewedAt              DateTime?
+  reviewNotes             String?
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([email])
+  @@index([eventSessionId])
+}
+
+model WebhookLog {
+  id        String   @id @default(cuid())
+  event     String
+  payload   Json
+  status    Int      // HTTP response status (0 if connection failed)
+  response  String?  // first 500 chars of response body
+  attempts  Int      @default(1)
+  success   Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([event])
+  @@index([createdAt])
+}

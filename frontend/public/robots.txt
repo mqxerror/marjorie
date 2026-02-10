@@ -1,0 +1,7 @@
+# Robots.txt for EB-3 Caregivers Landing Page
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://eb3caregivers.mercangroup.com/sitemap.xml
