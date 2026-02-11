@@ -83,7 +83,7 @@ export function HeroSection() {
                   src="/images/marjorie.jpeg"
                   alt="Marjorie Quintos, RCIC - Director of Immigration Services"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-[left_top]"
                   priority
                   sizes="(max-width: 640px) 256px, 288px"
                 />

@@ -20,7 +20,7 @@ export function EventFacilitators() {
                 src="/images/marjorie.jpeg"
                 alt="Marjorie Quintos, Director of Immigration Services"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[left_top]"
                 sizes="(max-width: 640px) 192px, 224px"
               />
             </div>

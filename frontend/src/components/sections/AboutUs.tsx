@@ -28,7 +28,7 @@ export function AboutUs() {
                 src="/images/marjorie.jpeg"
                 alt="Marjorie Quintos, RCIC"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[left_top]"
                 sizes="96px"
               />
             </div>
