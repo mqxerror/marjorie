@@ -453,20 +453,12 @@ export function ScreeningForm() {
 
             <div className="space-y-3">
               <p className="text-dark-text/50 text-sm font-medium">What to do next:</p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="flex items-center justify-center">
                 <a
                   href="/"
                   className="inline-block px-8 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-navy/90 transition-colors"
                 >
                   Return to Home
-                </a>
-                <a
-                  href="https://wa.me/971501234567?text=Hello%2C%20I%20just%20submitted%20my%20EB-3%20application."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
-                >
-                  Message Us on WhatsApp
                 </a>
               </div>
             </div>
