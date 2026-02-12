@@ -249,7 +249,10 @@ export function ScreeningForm() {
         case 'fullName':
           return !fullName.trim() ? 'Full name is required.' : '';
         case 'mobileNumber':
-          return !mobileNumber.trim() ? 'Mobile number is required.' : '';
+          if (!mobileNumber.trim()) return 'Mobile number is required.';
+          if (!mobileNumber.trim().startsWith('+')) return 'Please include your country code (e.g. +971).';
+          if (mobileNumber.replace(/[^0-9]/g, '').length < 8) return 'Please enter a valid mobile number.';
+          return '';
         case 'email':
           if (!email.trim()) return 'Email address is required.';
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Please enter a valid email address.';
@@ -297,6 +300,8 @@ export function ScreeningForm() {
   function validate(): string | null {
     if (!fullName.trim()) return 'Full name is required.';
     if (!mobileNumber.trim()) return 'Mobile number is required.';
+    if (!mobileNumber.trim().startsWith('+')) return 'Please include your country code (e.g. +971).';
+    if (mobileNumber.replace(/[^0-9]/g, '').length < 8) return 'Please enter a valid mobile number.';
     if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       return 'A valid email address is required.';
     if (!currentCity && !otherCity.trim()) return 'Current city is required.';
@@ -580,7 +585,7 @@ export function ScreeningForm() {
                 id="mobileNumber"
                 type="tel"
                 required
-                placeholder="+971"
+                placeholder="+971 5X XXX XXXX"
                 inputMode="tel"
                 autoComplete="tel"
                 value={mobileNumber}

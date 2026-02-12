@@ -31,7 +31,7 @@ export class CreateApplicationDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(50)
-  @Matches(/^\+?[0-9\s\-().]{7,20}$/, { message: 'Please provide a valid mobile number' })
+  @Matches(/^\+[0-9\s\-().]{7,20}$/, { message: 'Please include a country code (e.g. +971XXXXXXXXX)' })
   mobileNumber: string;
 
   @ApiProperty({ description: 'Email address' })
