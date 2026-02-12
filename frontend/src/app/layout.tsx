@@ -13,9 +13,9 @@ const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "";
 const SAFE_FB_PIXEL_ID = /^[0-9]+$/.test(FB_PIXEL_ID) ? FB_PIXEL_ID : "";
 
 export const metadata: Metadata = {
-  title: "EB-3 Green Card for Filipino Caregivers | Mercan Group",
+  title: "Planning your Family's American Dream? | Marjorie Quintos",
   description:
-    "Start your American Dream with the EB-3 Green Card program. Mercan Group helps Filipino caregivers in UAE secure permanent residency in the United States through employer sponsorship. No IELTS required.",
+    "EB-3 Green Card Information Session for Filipino caregivers in UAE. A long-term path to the U.S. through employer-sponsored permanent residency. No IELTS required.",
   keywords: [
     "EB-3 visa",
     "green card",
@@ -24,37 +24,37 @@ export const metadata: Metadata = {
     "Mercan Group",
     "UAE caregivers",
     "employment-based immigration",
-    "caregiver jobs USA",
+    "Marjorie Quintos",
   ],
   authors: [{ name: "Mercan Group" }],
   creator: "Mercan Group",
   publisher: "Mercan Group",
-  metadataBase: new URL("https://eb3caregivers.mercangroup.com"),
+  metadataBase: new URL("https://marjoriequintos.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://eb3caregivers.mercangroup.com",
-    siteName: "Mercan Group EB-3 Program",
-    title: "EB-3 Green Card for Filipino Caregivers | Mercan Group",
+    url: "https://marjoriequintos.com",
+    siteName: "Marjorie Quintos - EB-3 Green Card Info Session",
+    title: "Planning your Family's American Dream?",
     description:
-      "Join 50,000+ families who achieved their American Dream with Mercan Group. EB-3 Green Card program for caregivers - no IELTS required.",
+      "EB-3 Green Card Information Session for Filipino caregivers. A long-term path to the U.S. No IELTS required.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mercan Group EB-3 Green Card Program",
+        alt: "Planning your Family's American Dream? - EB-3 Green Card Info Session",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EB-3 Green Card for Filipino Caregivers",
+    title: "Planning your Family's American Dream?",
     description:
-      "Start your American Dream with Mercan Group. No IELTS required.",
+      "EB-3 Green Card Info Session for Filipino caregivers. A long-term path to the U.S.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -74,8 +74,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Mercan Group",
-  url: "https://eb3caregivers.mercangroup.com",
-  logo: "https://eb3caregivers.mercangroup.com/logo.png",
+  url: "https://marjoriequintos.com",
+  logo: "https://marjoriequintos.com/images/mercan-logo.png",
   description:
     "Global immigration leaders since 1989. Helping Filipino caregivers achieve their American Dream through the EB-3 Green Card program.",
   foundingDate: "1989",

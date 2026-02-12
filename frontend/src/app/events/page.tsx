@@ -12,14 +12,15 @@ import { EventDisclaimer } from '@/components/events/EventDisclaimer';
 
 
 export const metadata: Metadata = {
-  title: 'EB-3 Information Session | Apply to Attend | Mercan Group',
+  title: 'EB-3 Information Session | Apply to Attend | Marjorie Quintos',
   description:
     'Attend an informational session about the EB-3 immigrant visa category — a permanent residence pathway for Filipino caregivers. Learn about timelines, requirements, and the application process.',
   openGraph: {
-    title: 'EB-3 Information Session | Apply to Attend | Mercan Group',
+    title: 'Planning your Family\'s American Dream?',
     description:
-      'Attend an informational session about the EB-3 immigrant visa category — a permanent residence pathway for Filipino caregivers.',
+      'EB-3 Green Card Info Session for Filipino caregivers. A long-term path to the U.S.',
     type: 'website',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
 };
 
