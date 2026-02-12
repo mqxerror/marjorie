@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { ScriptManager } from '@/components/admin/ScriptManager';
 import { WebhookManager } from '@/components/admin/WebhookManager';
@@ -8,7 +9,7 @@ import { WebhookLogs } from '@/components/admin/WebhookLogs';
 const TABS = ['scripts', 'webhooks'] as const;
 type Tab = (typeof TABS)[number];
 
-export default function ScriptsPage() {
+function ScriptsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const activeTab = (searchParams.get('tab') as Tab) || 'scripts';
@@ -61,5 +62,13 @@ export default function ScriptsPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ScriptsPage() {
+  return (
+    <Suspense fallback={<div className="p-4 text-slate-500">Loading...</div>}>
+      <ScriptsContent />
+    </Suspense>
   );
 }
